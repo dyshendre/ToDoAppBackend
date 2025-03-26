@@ -1,6 +1,7 @@
-package com.example.demo.service;
+package com.example.demo.serviceImpl;
 
 import com.example.demo.dto.InputEmployee;
+import com.example.demo.dto.OutputResponseDto;
 import com.example.demo.model.Employees;
 import com.example.demo.repository.EmployeeRepository;
 
@@ -27,13 +28,20 @@ public class EmployeeService {
     }
 
     @Transactional
-    public Employees saveEmployee(InputEmployee inputEmployee) {
+    public OutputResponseDto saveEmployee(InputEmployee inputEmployee) {
         Employees employee = new Employees(); // Convert DTO to entity
         employee.setName(inputEmployee.getName());
+        employee.setUsername((inputEmployee.getUsername()));
+        employee.setPhoneNumber(inputEmployee.getPhoneNumber());
         employee.setDepartment(inputEmployee.getDepartment());
         employee.setEmail(inputEmployee.getEmail());
-        
-        return employeeRepository.save(employee);
+        employee.setPassword((inputEmployee.getPassword()));
+        employeeRepository.save(employee);
+         return new OutputResponseDto(
+            true,
+            null,
+            "Employee saved successfully.",
+            "200");
     }
 
     public Employees updateEmployee(Long id, Employees updatedEmployee) {

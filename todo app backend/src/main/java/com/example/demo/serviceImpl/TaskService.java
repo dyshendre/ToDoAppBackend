@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.serviceImpl;
 
 import com.example.demo.dto.InputTask;
 import com.example.demo.dto.OutputResponseDto;

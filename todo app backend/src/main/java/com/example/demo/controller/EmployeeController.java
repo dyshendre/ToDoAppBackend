@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.InputEmployee;
+import com.example.demo.dto.OutputResponseDto;
 import com.example.demo.model.Employees;
-import com.example.demo.service.EmployeeService;
+import com.example.demo.serviceImpl.EmployeeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +32,7 @@ public class EmployeeController {
 
     // Create Employees
     @PostMapping
-    public Employees createEmployee(@RequestBody InputEmployee inputEmployee) {
+    public OutputResponseDto createEmployee(@RequestBody InputEmployee inputEmployee) {
         return employeeService.saveEmployee(inputEmployee);
     }
 
