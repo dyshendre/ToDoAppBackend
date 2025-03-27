@@ -66,6 +66,7 @@ public class TaskService {
     }
 
     public OutputResponseDto updateTask(Long id, InputTask updatedTask) {
+        System.out.println("updated task===>"+updatedTask);
         Optional<Tasks> optionalExistingTask = taskRepository.findById(id); 
         if (optionalExistingTask.isPresent()) {
             Tasks existingTask = optionalExistingTask.orElse(null);

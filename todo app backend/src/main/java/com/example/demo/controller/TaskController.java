@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/task")
+@RequestMapping("/tasks")
 public class TaskController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class TaskController {
     }
 
     // Create Task
-    @PostMapping
+    @PostMapping("/{create}")
     public OutputResponseDto createTask(@RequestBody InputTask inputTask) {
         return taskService.saveTask(inputTask);
     }
